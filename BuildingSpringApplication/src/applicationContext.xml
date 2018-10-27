@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Constructor Injection
+	<bean id="myCard" class="com.nana.spring.model.ATMCard" />
+	<bean id="myAccount" class="com.nana.spring.model.SavingAccount">
+		<constructor-arg ref="myCard" />
+	</bean> -->
+	
+	<!-- Setter Injection  
+	<bean id="myCard" class="com.nana.spring.model.CreditCard" />
+	<bean id="myAccount" class="com.nana.spring.model.CurrentAccount">
+		<property name="creditCard" ref="myCard"/>
+	</bean> -->
+	
+		
+	<!-- Autowire Injection -->
+	<bean id="creditCard" class="com.nana.spring.model.CreditCard" />
+	<bean id="myAccount" class="com.nana.spring.model.CurrentAccount" autowire="byType"
+	init-method="onInit" destroy-method="onDestroy"/>
+	
+</beans>
